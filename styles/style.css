@@ -236,10 +236,13 @@ main ul li p {
 }
 
 @media screen and (max-width:560px){
+    header:hover{
+        background-color:rgba(12, 12, 12, 0.9) ;
+    }
     nav{
         display:block;
-        background-color:rgba(136, 136, 136, 0.5);
-        margin-top:33%;
+        background-color:rgba(8, 8, 8, 0.9);
+        margin-top:30%;
         width:100vw;
         visibility: hidden;
     }
