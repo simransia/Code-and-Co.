@@ -1,15 +1,16 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    margin: 0;
-    padding: 0;
     font-family: 'Open Sans', sans-serif;
 }
 
-header {
+.head-section{
     background-color: rgba(136, 136, 136, 0.5);
+    z-index:2;
     padding: 10px 20px;
     position: absolute;
     top: 0;
@@ -30,21 +31,23 @@ header {
     font-size: 16px;
 }
 
-nav {
+.nav-section {
     display: inline-block;
-    width: 60%;
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
 
-nav ul li {
+.nav-section .nav-list .nav-list-item {
     display: inline-block;
     font-size: 14px;
     font-weight: bold;
-    margin-left: 15px;
+    margin-left: 20px;
     list-style: none;
+}
+.nav-section .nav-list .nav-list-item:first-child{
+    margin-left:0;
 }
 
 .nav-link {
@@ -76,41 +79,46 @@ nav ul li {
     float:right;
     display:none;
 }
-section {
+.hero-section{
     height: 568px;
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../images/hero.jpg");
     background-position: center;
     background-size: cover;
-    z-index: -1;
     position: relative;
 }
-
-article {
-    width: 85vw;
+.container{
+    max-width:1080px;
+    width:95%;
+    height:100%;
+    margin:0 auto;
+    padding:0 20px;
+    position:relative;
+}
+.content{
+    width:100%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center;
 }
-
-article h1 {
+.content .content-heading {
     font-size: 30px;
     color: white;
+    margin:0 0 25px 0;
+    text-align: center;
 }
-
 .input-container {
     width: 100%;
     height: 50px;
     position: relative;
 }
 
-input {
+.input-container input {
     width: 100%;
     height: 100%;
     border: 5px solid grey;
     border-radius: 4px;
-    padding: 15px 20px;
+    padding:0 15px;
 }
 
 .input-container img {
@@ -120,14 +128,13 @@ input {
     width: 20px;
     height: 20px;
 }
-
-main {
+.main{
     width: 95vw;
     margin: 0 auto;
     padding: 25px 0;
 }
 
-main ul::after {
+.main .main__list::after {
     content: "";
     clear: both;
     display:block;
@@ -135,7 +142,7 @@ main ul::after {
     margin: 0;
 }
 
-main ul li {
+.main .main__list .main__list__item {
     width: 25%;
     float: left;
     padding: 42px 30px;
@@ -147,49 +154,48 @@ main ul li {
     cursor: pointer;
 }
 
-main ul li:last-child {
+.main .main__list .main__list__item:last-child {
     border-right: none;
 }
 
-main ul:last-child li {
+.main .main__list:last-child .main__list__item{
     border-bottom: none;
 }
 
-main ul li h3 {
+.main .main__list .main__list__item h3 {
     color: #4a4a4a;
-    margin: 20px 0;
+    margin:0 0  20px 0;
 }
 
-main ul li p {
+.main .main__list .main__list__item  p {
     color: #858585;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: normal;
     margin: 0;
+    line-height: 1.63;
 }
-
 .image {
     width: 80px;
     height: 80px;
     color:#4a4a4a;
     font-size: 16px;
+    margin: 0 0 20px 0;
 }
-
-.footer-content {
+.footer{
     background-color: #323232;
+}
+.footer-content {
     text-align: center;
     padding: 65px 0;
     color: white;
 }
-
 .footer-content h2 {
-    margin: 0;
+    margin:0 0 6px 0;
 }
-
 .footer-content p {
     font-size: 15px;
-    margin: 6px 0 0 0;
+    margin:0 0 30px 0;
 }
-
 .footer-content button {
     width: 223px;
     height: 40px;
@@ -198,7 +204,7 @@ main ul li p {
     background-color: #2086fb;
     color: white;
     border: none;
-    margin-top: 30px;
+    margin-top:0;
     text-transform:uppercase;
 }
 
@@ -236,19 +242,22 @@ main ul li p {
 }
 
 @media screen and (max-width:560px){
-    header:hover{
+    .head-section:hover{
         background-color:rgba(12, 12, 12, 0.9) ;
     }
-    nav{
+    .nav-section{
         display:block;
         background-color:rgba(8, 8, 8, 0.9);
-        margin-top:30%;
-        width:100vw;
+        margin-top:25%;
+        width:100%;
         visibility: hidden;
     }
-    nav ul li{
+    .nav-section .nav-list .nav-list-item{
         display:list-item;
         margin-bottom:5px;
+    }
+    .nav-section .nav-list .nav-list-item:first-child{
+        margin-left:20px;
     }
     .try-btn{
         position:absolute;
@@ -268,17 +277,20 @@ main ul li p {
     header a:hover ~ nav{
         visibility:visible;
     }
-    main ul{
+    .input-container input {
+        font-size:10px;
+    }
+    .main .main__list{
         padding:0 10px;
     }
-    main ul li{
+    .main .main__list .main__list__item {
         width:90vw;
         border-right:none;
     }
-    main ul:last-child li{
+    .main .main__list:last-child .main__list__item{
         border-bottom: 1px solid #dcdcdc;
     }
-    main ul:last-child li:last-child{
+    .main .main__list:last-child .main__list__item:last-child{
         border-bottom:none;
     }
 }
